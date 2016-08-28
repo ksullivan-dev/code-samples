@@ -1,0 +1,1 @@
+This sample will display 3 transaction cards with with endless (carousel) paging functionality.  It also has the option to include a testimonial on the reverse of the transaction card with an animated flip to view.

@@ -1,0 +1,145 @@
+.layout-expanding-columns {
+    .width-container {
+        background-image: url('@{path}grid-blue.png');
+        background-repeat: round;
+    }
+    .column-container {
+        padding-bottom: 40px;
+        .display( flex );
+        .column-slide {
+            cursor: pointer;
+            min-height: 500px;
+            position: relative;
+            text-decoration: none;
+            padding: 20px;
+            .box-sizing;
+            background-size: auto 100%;
+            background-size: cover;
+            .transition;
+            .flex( 1 1 20% );
+            .display( flex );
+            .flex-justify-content( flex-end );
+            .flex-direction( column );
+            overflow: hidden;
+            &:before {
+                .before;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: fade( @tan, 95% );
+                z-index: 0;
+            }
+            &.slide-2 {
+                &:before {
+                    background: fade( @green, 95% );
+                }
+            }
+            &.slide-3 {
+                &:before {
+                    background: fade( @dark-blue, 95% );
+                }
+            }
+            &.slide-4 {
+                &:before {
+                    background: fade( @dark-gray, 95% );
+                }
+            }
+            &:hover {
+                &:not( .active ) {
+                    &:before {
+                        background: fade( @black, 60% );
+
+                    }
+                    z-index: 2;
+                    @media screen and ( max-width: 920px ) {
+                        .transform( scale( 1 ) );
+                    }
+                }
+            }
+            &.active {
+                .flex( 2 2 40% );
+                .column-content {
+                    opacity: 1;
+                    visibility: visible;
+                    .transition( 300ms );
+                    .transition-delay( 300ms );
+                    height: 100%;
+                    @media screen and ( max-width: 768px ) {
+                        height: auto;
+                    }
+                }
+                .column-title {
+                    padding-top: 100px;
+                    .transition( 300ms );
+                    .transition-delay( 300ms );
+                    .number-diamond {
+                        &:before {
+                            height: 350%;
+                            .transition( 300ms );
+                            .transition-delay( 300ms );
+                        }
+                    }
+                    @media screen and ( max-width: 920px ) {
+                        padding-top: 60px;
+                        .number-diamond {
+                            &:before {
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .column-content {
+            height: 0;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1;
+            position: relative;
+            color: @white;
+        }
+        .column-title {
+            color: @white;
+            position: relative;
+            z-index: 1;
+            margin: 0 0 4px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid @white;
+            padding-top: 60px;
+            font-size: 24px;
+            .number-diamond {
+                .number-diamond-mixin( @white );
+            }
+            @media screen and ( max-width: 1160px ) {
+                font-size: 18px;
+            }
+        }
+        .cta-link {
+            margin-bottom: 24px;
+            @media screen and ( max-width: 920px ) {
+                font-size: 18px;
+                line-height: 20px;
+                max-width: 260px;
+            }
+        }
+        @media screen and ( max-width: 920px ) {
+            display: block;
+            margin-left: -30px;
+            margin-right: -30px;
+            padding-bottom: 0;
+            .column-content {
+               height: auto;
+               visibility: visible;
+               opacity: 1;
+            }
+        }
+        @media screen and ( max-width: 400px ) {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+    }
+    @media screen and ( max-width: 920px ) {
+        padding-bottom: 0;
+    }
+}
